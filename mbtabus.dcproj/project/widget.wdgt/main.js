@@ -8,7 +8,7 @@ var DEF_STOP_TITLE      = 'Forest Hills Station - Departure (Stop 8750)';
 var webserviceURLBase = 'http://webservices.nextbus.com/service/publicXMLFeed?a=mbta&';
 var predictionURLBase = webserviceURLBase + "command=predictions&";
 
-var version             = "1.5";
+var version             = "1.6";
 var versionURL          = "http://www.wirelust.com/apps/mbta/bustracker/version.txt";
 var debug               = false;
 
@@ -356,21 +356,18 @@ function refreshSingleRouteResponse(routeObj, request) {
                 var child = childNodes[r];
                 if (child.nodeName == "stop") {
                     var thisStop = child;
-                    var thisDirTag = thisStop.getAttribute('dirTag');
                     var thisStopId = thisStop.getAttribute('stopId');
                     
-                    var tempDirection = routeObj.getDirectionByTag(thisDirTag);
-                    if (tempDirection == null) {
-                        var tempDirection = new Direction();
-                        tempDirection.setDirectionTag(thisDirTag);
-                        routeObj.addDirection(tempDirection);
+                    var stop = routeObj.getStopByTag(stopTag);
+                        
+                    if (stop == null) {
+                        stop = new Stop();
+                        routeObj.addStop(stop);
                     }
-                    
-                    var tempStop = new Stop();
-                    tempStop.setStopTag(thisStop.getAttribute('tag'));
-                    tempStop.setStopTitle(thisStop.getAttribute('title'));
-                    tempStop.setStopId(thisStop.getAttribute('stopId'));
-                    tempDirection.addStop(tempStop);
+                    stop.setStopTag(thisStop.getAttribute('tag'));
+                    stop.setStopTitle(thisStop.getAttribute('title'));
+                    stop.setStopId(thisStop.getAttribute('stopId'));
+
                 } else if (child.nodeName == "direction") {
                     // we only care about the direction tags so we can get the titles.
                     // dumb for boston since we only have two directions, but whateva.
@@ -387,6 +384,24 @@ function refreshSingleRouteResponse(routeObj, request) {
                         }
                     } else {
                         tempDirection.setDirectionTitle(thisDirTitle);
+                    }
+                    
+                    var stopNodes = child.childNodes;
+                    for (var s=0; s<stopNodes.length; s++) {
+                        var stopXml = stopNodes[s];
+                        if (stopXml.nodeType == 1) {
+                            var stopTag = stopXml.getAttribute('tag');
+
+                            stop = routeObj.getStopByTag(stopTag);
+                            
+                            if (stop == null) {
+                                stop = new Stop();
+                                stop.setStopTag(stopTag);
+                                routeObj.addStop(stop);
+                            }
+                            
+                            tempDirection.addStop(stop);                        
+                        }
                     }
                 }
             }
@@ -585,6 +600,7 @@ Route = function() {
 	this.$directions = new Array();
     this.$loaded = false;
     this.$loading = false;
+    this.$stops = new Array();
 }
 Route.prototype.isLoaded = function(arg) {
 	return this.$loaded;
@@ -620,6 +636,20 @@ Route.prototype.getDirectionByTag = function(arg) {
     for (var i=0; i<this.$directions.length; i++) {
         if (this.$directions[i].getDirectionTag() == arg) {
             return this.$directions[i];
+        }
+    }
+    return null;
+}
+Route.prototype.addStop = function(arg) {
+	this.$stops.push(arg);
+}
+Route.prototype.getStops = function(arg) {
+	return this.$stops;
+}
+Route.prototype.getStopByTag = function(arg) {
+    for (var i=0; i<this.$stops.length; i++) {
+        if (this.$stops[i].getStopTag() == arg) {
+            return this.$stops[i];
         }
     }
     return null;

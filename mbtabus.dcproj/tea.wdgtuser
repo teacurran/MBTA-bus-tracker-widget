@@ -12,8 +12,6 @@
 		<string>-refreshSingleRoute</string>
 		<key>widget.wdgt/main.js:310</key>
 		<string>-refreshRoutesResponse</string>
-		<key>widget.wdgt/main.js:34</key>
-		<string>-changeDirection</string>
 		<key>widget.wdgt/main.js:343</key>
 		<string>-refreshSingleRouteResponse</string>
 		<key>widget.wdgt/main.js:349</key>
@@ -22,35 +20,25 @@
 		<string>-refreshSingleRouteResponse</string>
 		<key>widget.wdgt/main.js:352</key>
 		<string>-refreshSingleRouteResponse</string>
-		<key>widget.wdgt/main.js:375</key>
+		<key>widget.wdgt/main.js:374</key>
 		<string>-refreshSingleRouteResponse</string>
-		<key>widget.wdgt/main.js:377</key>
+		<key>widget.wdgt/main.js:410</key>
 		<string>-refreshSingleRouteResponse</string>
-		<key>widget.wdgt/main.js:395</key>
+		<key>widget.wdgt/main.js:414</key>
 		<string>-refreshSingleRouteResponse</string>
-		<key>widget.wdgt/main.js:399</key>
-		<string>-refreshSingleRouteResponse</string>
-		<key>widget.wdgt/main.js:402</key>
-		<string>-refreshTimes</string>
-		<key>widget.wdgt/main.js:433</key>
+		<key>widget.wdgt/main.js:417</key>
 		<string>-refreshTimes</string>
 		<key>widget.wdgt/main.js:44</key>
 		<string>-changeDirection</string>
-		<key>widget.wdgt/main.js:467</key>
+		<key>widget.wdgt/main.js:448</key>
+		<string>-refreshTimes</string>
+		<key>widget.wdgt/main.js:482</key>
 		<string>-savePrefs</string>
-		<key>widget.wdgt/main.js:58</key>
-		<string>-changeRoute</string>
-		<key>widget.wdgt/main.js:60</key>
-		<string>-changeRoute</string>
-		<key>widget.wdgt/main.js:65</key>
-		<string>-changeRoute</string>
-		<key>widget.wdgt/main.js:68</key>
-		<string>-changeRoute</string>
 		<key>widget.wdgt/main.js:79</key>
 		<string>-</string>
 	</dict>
 	<key>CYLastWindowPosition</key>
-	<string>{744, 189}</string>
+	<string>{1372, 37}</string>
 	<key>ContentSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
@@ -61,8 +49,8 @@
 		<integer>0</integer>
 		<key>sizes</key>
 		<array>
-			<string>{{0, 0}, {1435, 493}}</string>
-			<string>{{0, 503}, {1435, 420}}</string>
+			<string>{{0, 0}, {1435, 376}}</string>
+			<string>{{0, 386}, {1435, 536}}</string>
 		</array>
 	</dict>
 	<key>ContentViewType</key>
@@ -94,24 +82,24 @@
 		<integer>0</integer>
 		<key>sizes</key>
 		<array>
-			<string>{{0, 0}, {244, 944}}</string>
-			<string>{{245, 0}, {1436, 944}}</string>
+			<string>{{0, 0}, {244, 943}}</string>
+			<string>{{245, 0}, {1436, 943}}</string>
 		</array>
 	</dict>
 	<key>MainWindowFrame</key>
-	<string>0 63 1680 965 0 0 1680 1028 </string>
+	<string>0 64 1680 964 0 0 1680 1028 </string>
 	<key>NavigatorSplitViewGeometry</key>
 	<dict>
 		<key>ContentSplitViewConfig</key>
-		<integer>5</integer>
+		<integer>9</integer>
 		<key>SplitViewConfig</key>
 		<integer>3</integer>
 		<key>_indexOfCollapsedView</key>
 		<integer>0</integer>
 		<key>sizes</key>
 		<array>
-			<string>{{0, 0}, {246, 480}}</string>
-			<string>{{0, 490}, {246, 433}}</string>
+			<string>{{0, 0}, {246, 479}}</string>
+			<string>{{0, 489}, {246, 433}}</string>
 		</array>
 	</dict>
 	<key>Widget</key>
@@ -126,36 +114,16 @@
 				<integer>0</integer>
 				<integer>3</integer>
 			</array>
-			<array>
-				<integer>0</integer>
-				<integer>0</integer>
-			</array>
-			<array>
-				<integer>0</integer>
-				<integer>0</integer>
-				<integer>2</integer>
-			</array>
-			<array>
-				<integer>0</integer>
-				<integer>1</integer>
-			</array>
-			<array>
-				<integer>0</integer>
-				<integer>1</integer>
-				<integer>2</integer>
-			</array>
 		</array>
 		<key>Objects view last selections</key>
 		<array>
 			<array>
 				<integer>0</integer>
-				<integer>0</integer>
-				<integer>7</integer>
 			</array>
 		</array>
 		<key>Visible StackLayout Views</key>
 		<array>
-			<string>front</string>
+			<string>back</string>
 		</array>
 	</dict>
 </dict>
